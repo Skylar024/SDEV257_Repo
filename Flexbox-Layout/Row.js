@@ -8,6 +8,6 @@ export default function Row({ children }) {
         <View style={styles.row}>{children}</View>
     );
 }
-Box.propTypes = {
+Row.propTypes = {
     children: PropTypes.node.isRequired,
 };
