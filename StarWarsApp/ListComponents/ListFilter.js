@@ -6,12 +6,13 @@ import styles from "../styles";
 export default function ListFilter({ onFilter }) {
     return (
         <View>
-            <TextInput
+            {/* Disabled this search bar temporarily */}
+            {/* <TextInput
                 //autoFocus //Enable to automatically bring up keyboard for search bar when loading into a tab
                 placeholder="Search"
                 style={styles.filterText}
                 onChangeText={onFilter}
-            />
+            /> */}
         </View>
     );
 }

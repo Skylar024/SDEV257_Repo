@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import { Text } from "react-native";
 
 const arrows = new Map([
-    [true, "▼"],
-    [false, "▲"],
+    // Temporarily Hidden
+    // [true, "▼"],
+    // [false, "▲"],
 ]);
 
 export default function ListSort({ onSort, asc }) {

@@ -9,6 +9,43 @@ export default StyleSheet.create({
 
         
     },
+    modalContainer: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    modalText: {
+        fontSize: 16,
+        margin: 5,
+        color: "slategrey",
+    },
+    modalButton: {
+        fontWeight: "bold",
+        margin: 5,
+        color: "slategray",
+    },
+    modalInner: {
+        backgroundColor: "azure",
+        padding: 20,
+        borderWidth: 1,
+        borderColor: "lightsteelblue",
+        borderRadius: 2,
+        alignItems: "center",
+    },
+    searchContainer: {
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        backgroundColor: "white",
+        padding: 10,
+        marginTop: 10,
+        borderWidth: 1,
+        borderRadius: 50,
+        maxHeight: 50,
+        width: 150,
+        textAlign: "center",
+    },
     item: {
         margin: 5,
         padding: 5,
@@ -24,19 +61,20 @@ export default StyleSheet.create({
         width: 200,
         
     },
-    controls: {
-        flex: 1,
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        backgroundColor: "white",
-        padding: 10,
-        marginTop: 10,
-        borderWidth: 1,
-        borderRadius: 50,
+    //Temporarily Hidden
+    // controls: {
+    //     flex: 1,
+    //     flexDirection: "row",
+    //     justifyContent: "space-between",
+    //     alignItems: "center",
+    //     backgroundColor: "white",
+    //     padding: 10,
+    //     marginTop: 10,
+    //     borderWidth: 1,
+    //     borderRadius: 50,
 
 
-    },
+    // },
     text: {
         textAlign: "center",
     },
