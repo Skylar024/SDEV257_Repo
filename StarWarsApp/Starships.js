@@ -3,8 +3,13 @@ import { View, Text, TextInput } from "react-native";
 import styles from "./styles";
 import ListContainer from "./ListComponents/ListContainer";
 import Modal from "./Modal.js";
+import LazyImage from "./LazyImage.js";
+import Button from "./Button.js";
+
+const remote = require("./images/starships.jpg");
 
 export default function Starships({ navigation }) {
+    const [source, setSource] = useState(null);
     const [modalVisible, setModalVisible] = useState(false);
     const [searchInput, setSearchInput] = useState("");
 
@@ -15,8 +20,21 @@ export default function Starships({ navigation }) {
 
 
     return (
-        <View style={styles.container}>
+        <View style={styles.wrapper}>
             <Text style={styles.text}>Starships Content</Text>
+            <View style={styles.imageContainer}>
+                <LazyImage
+                    style={styles.image}
+                    resizeMode="contain"
+                    source={source}
+                />
+                <Button
+                    label="Load Remote"
+                    onPress={() => {
+                        setSource(remote);
+                    }}
+                />
+            </View>
             <TextInput 
                 style={styles.searchContainer}
                 placeholder="Search:"

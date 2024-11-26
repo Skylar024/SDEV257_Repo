@@ -1,6 +1,21 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
+    wrapper: {
+        flex: 1,
+        flexDirection: "column",
+        paddingTop: 5,
+        alignItems: "center",
+
+        
+    },
+    imageContainer: {
+        flex: 1,
+        flexDirection: "column",
+        alignItems: "center",
+        backgroundColor: "ghostwhite",
+        
+    },
     container: {
         flex: 1,
         flexDirection: "column",
@@ -8,6 +23,21 @@ export default StyleSheet.create({
         alignItems: "center",
 
         
+    },
+    image: {
+        width: 300, 
+        height: 150,
+    },
+    imageContainer: {
+
+    },
+    button: {
+        padding: 10,
+        margin: 5,
+        backgroundColor: "azure",
+        borderWidth: 1,
+        borderRadius: 4,
+        borderColor: "slategrey",
     },
     modalContainer: {
         flex: 1,
@@ -77,6 +107,9 @@ export default StyleSheet.create({
     // },
     text: {
         textAlign: "center",
+    },
+    buttonText: {
+        color: "slategray",
     },
     
 });
