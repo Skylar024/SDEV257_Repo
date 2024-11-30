@@ -54,8 +54,9 @@ export default function Starships({ navigation }) {
                 onPressCancel={toggleModal}
             >
             </Modal>
-            
+
             <ListContainer endpoint="Starships" />
+
         </View>
     );
 }

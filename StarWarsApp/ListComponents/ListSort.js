@@ -9,7 +9,8 @@ const arrows = new Map([
 ]);
 
 export default function ListSort({ onSort, asc }) {
-    return <Text onPress={onSort}>{arrows.get(asc)}</Text>;
+    // Temporarily Hidden
+    // return <Text onPress={onSort}>{arrows.get(asc)}</Text>;
 }
 ListSort.propTypes = {
     onSort: PropTypes.func.isRequired,

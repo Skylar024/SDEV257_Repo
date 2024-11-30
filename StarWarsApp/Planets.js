@@ -9,6 +9,7 @@ import Button from "./Button.js";
 const remote = require("./images/planets.jpg");
 
 export default function Planets({ navigation }) {
+    const [items, setItems] = useState();
     const [source, setSource] = useState(null);
     const [modalVisible, setModalVisible] = useState(false);
     const [searchInput, setSearchInput] = useState("");
@@ -52,10 +53,11 @@ export default function Planets({ navigation }) {
                 content={`Search for: ${searchInput}?`}
                 onPressConfirm={toggleModal}
                 onPressCancel={toggleModal}
-            >
-            </Modal>
-
+            />
+            
             <ListContainer endpoint="Planets" />
+
+           
         </View>
     );
 }

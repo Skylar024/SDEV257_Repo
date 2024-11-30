@@ -18,18 +18,60 @@ export default StyleSheet.create({
     },
     container: {
         flex: 1,
-        flexDirection: "column",
-        paddingTop: 5,
         alignItems: "center",
+        justifyContent: "center",
 
         
+    },
+    scroll: {
+        height: 1,
+        alignSelf: "stretch",
+        
+    },
+    swipeContainer: {
+        flex: 1,
+        flexDirection: "row",
+        width: 200,
+        height: 30,
+        marginTop: 30,
+    },
+
+    swipeItem: {
+        width: 200,
+        height: 30,
+        backgroundColor: "slategray",
+        justifyContent: "center",
+        borderWidth: 1,
+        borderRadius: 4,
+        borderColor: "slategrey",
+    },
+    
+    swipeItemText: {
+        textAlign: "center",
+        color: "ghostwhite",
+    },
+    item: {
+        margin: 5,
+        padding: 5,
+        color: "ghostwhite",
+        backgroundColor: "slategray",
+        textAlign: "center",
+        borderWidth: .5,
+        alignSelf: "center",
+        width: 200,
+
+    },
+    
+    swipeBlank: {
+        width: 200,
+        height: 30,
     },
     image: {
         width: 300, 
         height: 150,
     },
     imageContainer: {
-
+        
     },
     button: {
         padding: 10,
@@ -40,9 +82,12 @@ export default StyleSheet.create({
         borderColor: "slategrey",
     },
     modalContainer: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        position: "absolute",
+        top: 300,
+        left: 115,
+        zIndex: 100,
+        width: 200,
+        height: 100,
     },
     modalText: {
         fontSize: 16,
@@ -75,16 +120,6 @@ export default StyleSheet.create({
         maxHeight: 50,
         width: 150,
         textAlign: "center",
-    },
-    item: {
-        margin: 5,
-        padding: 5,
-        color: "ghostwhite",
-        backgroundColor: "slategray",
-        textAlign: "center",
-        borderWidth: .5,
-        
-
     },
     filterText: {
         height: 20,

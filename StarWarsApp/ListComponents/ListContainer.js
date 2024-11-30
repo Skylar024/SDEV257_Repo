@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from "react";
+import { View } from "react-native";
 import { fetchItems, fetchFilms } from "../api"; // General fetch for other endpoints
 import List from "./List";
+import styles from "../styles";
+import Modal from "../Modal";
 
 export default function ListContainer({ endpoint }) {
     const [asc, setAsc] = useState(true);
     const [filter, setFilter] = useState("");
     const [data, setData] = useState([]);
+    const [swipeModalContent, setSwipeModalContent] = useState("");
+    const [swipeModalVisible, setSwipeModalVisible] = useState(false);
+
+    function toggleModal() {
+        setSwipeModalVisible(!swipeModalVisible);
+    }
+    
 
     useEffect(() => {
         //Used for Films only because it uses 'title' attribute instead of 'name' attribute like the others do
@@ -32,50 +42,28 @@ export default function ListContainer({ endpoint }) {
         }
     }, [endpoint, filter, asc]);
 
-    return (
-        <List
-            data={data}
-            asc={asc}
-            onFilter={(text) => {
-                setFilter(text);
-                //Determine if trying to fetch Films or anything else
-                if (endpoint == "Films") {
-                    fetchFilms(text, asc)
-                        .then((items) =>
-                        setData(items.map((item, i) => ({
-                            key: i.toString(),
-                            value: item.title,
-                        }))));
-                } 
-                else {
-                    fetchItems(endpoint, text, asc)
-                        .then((items) =>
-                        setData(items.map((item, i) => ({
-                            key: i.toString(),
-                            value: item.name,
-                        }))));
-                }
-            }}
-            onSort={() => {
-                setAsc(!asc);
-                if (endpoint == "Films") {
-                    fetchFilms(filter, !asc)
-                        .then((items) =>
-                        setData(
-                            items.map((item, i) => ({
-                            key: i.toString(),
-                            value: item.title,
-                        }))));
-                } 
-                else {
-                    fetchItems(endpoint, filter, !asc)
-                        .then((items) =>
-                        setData(items.map((item, i) => ({
-                            key: i.toString(),
-                            value: item.name,
-                        }))));
-                }
-            }}
-        />
+
+    const swipeHandler = (text) => {
+        setSwipeModalContent(text);
+        setSwipeModalVisible(true);
+    }
+
+
+    return ( 
+        <View style={styles.container}>
+            <List
+                data={data}
+                asc={asc}
+                onFilter={(text) => setFilter(text)}
+                onSort={() => setAsc(!asc)}
+                onSwipe={swipeHandler}
+            />
+            <Modal
+                visible={swipeModalVisible}
+                content={swipeModalContent}
+                onPressConfirm={toggleModal}
+                onPressCancel={toggleModal}
+            />
+        </View>
     );
 }

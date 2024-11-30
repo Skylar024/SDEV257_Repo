@@ -56,6 +56,7 @@ export default function Films({ navigation }) {
             </Modal>
 
             <ListContainer endpoint="Films" />
+
         </View>
     );
 }
