@@ -71,7 +71,8 @@ export default StyleSheet.create({
         height: 150,
     },
     imageContainer: {
-        
+        // backgroundColor: "black",
+
     },
     button: {
         padding: 10,

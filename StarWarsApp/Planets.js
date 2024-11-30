@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { View, Text, TextInput } from "react-native";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import Animated, { SlideInLeft, SlideOutRight } from "react-native-reanimated";
 import styles from "./styles";
 import ListContainer from "./ListComponents/ListContainer";
 import Modal from "./Modal.js";
@@ -17,6 +18,7 @@ export default function Planets({ navigation }) {
     function toggleModal() {
         setModalVisible(!modalVisible);
     }
+    
     
 
 

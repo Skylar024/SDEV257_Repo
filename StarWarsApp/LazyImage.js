@@ -1,33 +1,35 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { View, Image } from "react-native";
+import { View, Image, Text, TouchableOpacity } from "react-native";
+import Animated, { SlideInLeft, SlideOutRight } from "react-native-reanimated";
 import styles from "./styles";
 
 const placeholder = require("./images/placeholder.png");
 
-function Placeholder(props) {
-    if (props.loaded) {
-        return null;
-    } else {
-        return (
-            <Image style={props.style} source={placeholder}></Image>
-        );
-    }
-}
 
 export default function LazyImage(props) {
     const [loaded, setLoaded] = useState(false);
 
     return (
         <View style={props.style}>
-            <Placeholder loaded={loaded} {...props} />
-            <Image
-                {...props}
-                onLoad={() => {
-                    setLoaded(true);
-                }}
-            />
+            <Animated.View 
+                key={props.source ? props.source.uri || props.source : 'placeholder'}
+                entering={SlideInLeft} 
+                exiting={SlideOutRight}
+            >  
+                <TouchableOpacity onPress={() => onPress(id)} style={styles.image}>
+                    <Image
+                        {...props}
+                        onLoad={() => {
+                            setLoaded(true);
+                        }}
+                        
+                    >
+                    </Image>
+                </TouchableOpacity>
+            </Animated.View>
         </View>
+        
     );
 }
 
