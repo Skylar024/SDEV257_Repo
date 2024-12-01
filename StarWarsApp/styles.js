@@ -16,6 +16,18 @@ export default StyleSheet.create({
         backgroundColor: "ghostwhite",
         
     },
+    connectionContainer: {
+        width: 300,
+        backgroundColor: "#97a2ae",
+        borderBottomLeftRadius: 15,
+        borderBottomRightRadius: 15,
+
+    },
+    connectionText: {
+        color: "lightgreen",
+        textAlign: "center",
+
+    },
     container: {
         flex: 1,
         alignItems: "center",
@@ -141,8 +153,13 @@ export default StyleSheet.create({
 
 
     // },
-    text: {
+    titleText: {
         textAlign: "center",
+        color: "ghostwhite",
+        width: 200,
+        backgroundColor: "slategray",
+        borderBottomLeftRadius: 15,
+        borderBottomRightRadius: 15,
     },
     buttonText: {
         color: "slategray",

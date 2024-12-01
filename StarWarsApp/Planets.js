@@ -1,30 +1,54 @@
-import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
-import Animated, { SlideInLeft, SlideOutRight } from "react-native-reanimated";
+import React, { useState, useEffect } from "react";
+import { View, Text, TextInput } from "react-native";
 import styles from "./styles";
 import ListContainer from "./ListComponents/ListContainer";
-import Modal from "./Modal.js";
-import LazyImage from "./LazyImage.js";
-import Button from "./Button.js";
+import Modal from "./Modal";
+import LazyImage from "./LazyImage";
+import Button from "./Button";
+import NetInfo from "@react-native-community/netinfo";
 
 const remote = require("./images/planets.jpg");
 
+const connectedMap = {
+    none: "Disconnected",
+    unknown: "Unknown",
+    wifi: "Connected - Wifi",
+    cell: "Connected - Cell",
+    mobile: "Connected - Mobile",
+
+};
+
 export default function Planets({ navigation }) {
-    const [items, setItems] = useState();
     const [source, setSource] = useState(null);
     const [modalVisible, setModalVisible] = useState(false);
     const [searchInput, setSearchInput] = useState("");
+    const [connected, setConnected] = useState("");
 
     function toggleModal() {
         setModalVisible(!modalVisible);
     }
+
+    useEffect(() => {
+        function onNetworkChange(connection) {
+            setConnected(connectedMap[connection.type]);
+        }
+
+        const unsubscribe = NetInfo.addEventListener(onNetworkChange);
+
+        return () => {
+            unsubscribe();
+        };
+    }, []);
     
     
 
 
     return (
         <View style={styles.wrapper}>
-            <Text style={styles.text}>Planets Content</Text>
+            <View style={styles.connectionContainer}>
+                <Text style={styles.connectionText}>{connected}</Text>
+            </View>
+            <Text style={styles.titleText}>Planets Content</Text>
             <View style={styles.imageContainer}>
                 <LazyImage
                     style={styles.image}
