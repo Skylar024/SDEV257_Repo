@@ -62,7 +62,8 @@ export default function Planets({ navigation }) {
                     }}
                 />
             </View>
-            <TextInput 
+            {/* Old Search Bar */}
+            {/* <TextInput 
                 style={styles.searchContainer}
                 placeholder="Search:"
                 value={searchInput}
@@ -72,7 +73,7 @@ export default function Planets({ navigation }) {
                 }}
             >
                 
-            </TextInput>
+            </TextInput> */}
 
             <Modal
                 visible={modalVisible}

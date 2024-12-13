@@ -7,12 +7,12 @@ export default function ListFilter({ onFilter }) {
     return (
         <View>
             {/* Disabled this search bar temporarily */}
-            {/* <TextInput
+            <TextInput
                 //autoFocus //Enable to automatically bring up keyboard for search bar when loading into a tab
-                placeholder="Search"
+                placeholder="Search: "
                 style={styles.filterText}
                 onChangeText={onFilter}
-            /> */}
+            />
         </View>
     );
 }

@@ -137,22 +137,25 @@ export default StyleSheet.create({
     filterText: {
         height: 20,
         width: 200,
+        textAlign: "center",
+        
         
     },
-    //Temporarily Hidden
-    // controls: {
-    //     flex: 1,
-    //     flexDirection: "row",
-    //     justifyContent: "space-between",
-    //     alignItems: "center",
-    //     backgroundColor: "white",
-    //     padding: 10,
-    //     marginTop: 10,
-    //     borderWidth: 1,
-    //     borderRadius: 50,
+    
+    controls: {
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        backgroundColor: "white",
+        padding: 10,
+        marginTop: 10,
+        borderWidth: 1,
+        borderRadius: 50,
 
 
-    // },
+
+    },
     titleText: {
         textAlign: "center",
         color: "ghostwhite",

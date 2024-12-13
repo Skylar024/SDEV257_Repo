@@ -61,7 +61,8 @@ export default function Films({ navigation }) {
                     }}
                 />
             </View>
-            <TextInput 
+            {/* Old Search Bar */}
+            {/* <TextInput 
                 style={styles.searchContainer}
                 placeholder="Search:"
                 value={searchInput}
@@ -71,7 +72,7 @@ export default function Films({ navigation }) {
                 }}
             >
                 
-            </TextInput>
+            </TextInput> */}
 
             <Modal
                 visible={modalVisible}
