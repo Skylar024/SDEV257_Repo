@@ -38,11 +38,11 @@ export default function PlanetDetail({ route }) {
     return (
         <View style={styles.detailsContainer}>
             <Text style={styles.titleText}>{planet.name || "Unknown"}</Text> 
-            <Text style={styles.infoText}>Climate: {planet.climate.charAt(0).toUpperCase() + planet.climate.slice(1) || "Unknown"}</Text> 
+            <Text style={styles.infoText}>Climate: {planet.climate || "Unknown"}</Text> 
             <Text style={styles.infoText}>Diameter: {planet.diameter || "Unknown"}</Text> 
             <Text style={styles.infoText}>Gravity: {planet.gravity || "Unknown"}</Text> 
             <Text style={styles.infoText}>Orbital Period: {planet.orbital_period || "Unknown"}</Text> 
-            <Text style={styles.infoText}>Population: {planet.population.charAt(0).toUpperCase() + planet.population.slice(1) || "Unknown"}</Text> 
+            <Text style={styles.infoText}>Population: {planet.population || "Unknown"}</Text> 
             <Text style={styles.infoText}>Rotation Period: {planet.rotation_period || "Unknown"}</Text> 
             <Text style={styles.infoText}>Terrain: {planet.terrain || "Unknown"}</Text> 
             <Text style={styles.infoText}>URL: {planet.url || "Unknown"}</Text>
