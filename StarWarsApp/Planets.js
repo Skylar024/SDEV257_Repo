@@ -24,6 +24,11 @@ export default function Planets({ navigation }) {
     const [searchInput, setSearchInput] = useState("");
     const [connected, setConnected] = useState("");
 
+    const navigationHandler = (planetDetails) => {
+        console.log("Planet Details: ", planetDetails);
+        navigation.navigate("details", { details: planetDetails.properties });
+    };
+
     function toggleModal() {
         setModalVisible(!modalVisible);
     }
@@ -75,14 +80,14 @@ export default function Planets({ navigation }) {
                 
             </TextInput> */}
 
-            <Modal
-                visible={modalVisible}
-                content={`Search for: ${searchInput}?`}
-                onPressConfirm={toggleModal}
-                onPressCancel={toggleModal}
-            />
             
-            <ListContainer endpoint="Planets" />
+            
+            <ListContainer 
+                endpoint="Planets" 
+                onSwipe={(planetDetails) => 
+                    navigationHandler(planetDetails.properties)
+                }
+            />
 
            
         </View>

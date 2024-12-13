@@ -4,8 +4,10 @@ import { fetchItems, fetchFilms } from "../api"; // General fetch for other endp
 import List from "./List";
 import styles from "../styles";
 import Modal from "../Modal";
+import { useNavigation } from "@react-navigation/native";
 
 export default function ListContainer({ endpoint }) {
+    const navigation = useNavigation();
     const [asc, setAsc] = useState(true);
     const [filter, setFilter] = useState("");
     const [data, setData] = useState([]);
@@ -36,16 +38,26 @@ export default function ListContainer({ endpoint }) {
                     const mappedData = items.map((item, i) => ({
                         key: i.toString(),
                         value: item.name,
+                        details: item,
                     }));
                     setData(mappedData);
+                    //console.log(mappedData);
                 });
         }
     }, [endpoint, filter, asc]);
 
 
-    const swipeHandler = (text) => {
-        setSwipeModalContent(text);
-        setSwipeModalVisible(true);
+    const swipeHandler = (item) => {
+        
+        
+        if (endpoint === "Planets") {
+            navigation.navigate("details", {details: item.details});
+            console.log(endpoint)
+        }
+
+
+        // setSwipeModalContent(text);
+        // setSwipeModalVisible(true);
     }
 
 
@@ -58,12 +70,7 @@ export default function ListContainer({ endpoint }) {
                 onSort={() => setAsc(!asc)}
                 onSwipe={swipeHandler}
             />
-            <Modal
-                visible={swipeModalVisible}
-                content={swipeModalContent}
-                onPressConfirm={toggleModal}
-                onPressCancel={toggleModal}
-            />
+            
         </View>
     );
 }

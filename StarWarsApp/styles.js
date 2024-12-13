@@ -16,6 +16,11 @@ export default StyleSheet.create({
         backgroundColor: "ghostwhite",
         
     },
+    detailsContainer: {
+        flex: 1,
+        alignItems: "center",
+        
+    },
     connectionContainer: {
         width: 300,
         backgroundColor: "#97a2ae",
@@ -167,5 +172,9 @@ export default StyleSheet.create({
     buttonText: {
         color: "slategray",
     },
+    infoText: {
+        color: "red",
+
+    }
     
 });
